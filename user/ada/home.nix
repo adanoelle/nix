@@ -5,6 +5,7 @@ in {
     ./alacritty.nix
     ./helix.nix
     ./starship.nix
+    ./zoxide.nix
     ./zsh.nix
   ];
 

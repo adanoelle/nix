@@ -12,7 +12,9 @@
         y = 2;
       };
 
-      shell.program = "${pkgs.zsh}/bin/zsh";
+      terminal.shell = "${pkgs.zsh}/bin/zsh";
+
+      general.working_directory = "/Users/ada/home";
 
       cursor.style = "Beam";
 
