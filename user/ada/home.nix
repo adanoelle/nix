@@ -3,6 +3,7 @@
 in {
   imports = [
     ./alacritty.nix
+    ./fzf.nix
     ./helix.nix
     ./starship.nix
     ./zoxide.nix
