@@ -14,6 +14,10 @@ in {
 
   home.packages = with pkgs; [
     bat
+    nerdfonts
+    font-awesome
+    google-fonts
+    raycast
     tree
     uv
   ];

@@ -6,9 +6,11 @@
     fastfetch
     helix
     hyfetch
-    uv
+    soundsource
     vim
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
@@ -18,6 +20,10 @@
 
   # Enable alternative shell support in nix-darwin.
   programs.zsh.enable = true;
+
+  fonts.packages = [
+    pkgs.monaspace
+  ];
 
   # Set Git commit hash for darwin-version.
   #system.configurationRevision = self.rev or self.dirtyRev or null;
