@@ -13,8 +13,9 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages = with pkgs; [ 
-        vim
         helix
+        hyfetch
+        vim
       ];
 
       # Auto upgrade nix package and the daemon service.
