@@ -20,7 +20,7 @@
       fzf = "fzf --preview 'bat --color=always {}'";
       hzf = "hx $(fzf)";
       ll = "ls -l";
-      rebuild = "sudo nixos-rebuild switch --flake /home/avery/nixos/";
+      rebuild = "nix run nix-darwin -- switch --flake /Users/ada/home/nix#bubblegum";
     };
   };
 

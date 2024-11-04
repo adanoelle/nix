@@ -12,6 +12,9 @@ in {
   #home.homeDirectory = "/Users/ada";
 
   home.packages = with pkgs; [
+    bat
+    tree
+    uv
   ];
 
   fonts.fontconfig.enable = true;
