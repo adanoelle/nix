@@ -7,9 +7,13 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, home-manager, darwin, nixpkgs }: {
+  outputs = inputs@{ self, home-manager, darwin, rust-overlay, nixpkgs }: {
     darwinConfigurations = {
       bubblegum = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
@@ -21,6 +25,10 @@
             home-manager.useUserPackages = true;
             home-manager.users.ada = import ./user/ada/home.nix;
           }
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = [ rust-overlay.overlays.default ];
+            environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+          })
         ];
       };
 
