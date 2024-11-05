@@ -15,6 +15,7 @@ in {
 
   home.packages = with pkgs; [
     bat
+    gcc
     nerdfonts
     font-awesome
     google-fonts
