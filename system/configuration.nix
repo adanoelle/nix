@@ -1,6 +1,10 @@
 { pkgs, ... }: 
 
 {
+  imports = [
+#    modules/aerospace.nix
+  ];
+ 
   environment.systemPackages = with pkgs; [
     awscli2
     comma
