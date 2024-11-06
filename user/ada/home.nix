@@ -15,6 +15,7 @@ in {
   #home.homeDirectory = "/Users/ada";
 
   home.packages = with pkgs; [
+    aerospace
     bat
     bottom
     gcc
