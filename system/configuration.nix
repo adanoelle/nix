@@ -1,9 +1,7 @@
 { pkgs, ... }: 
 
 {
-  imports = [
-#    modules/homebrew.nix
-  ];
+  imports = [];
  
   environment.systemPackages = with pkgs; [
     awscli2
@@ -15,6 +13,15 @@
     soundsource
     vim
   ];
+
+  homebrew = {
+    enable = true;
+    # onActivation.cleanup = "uninstall";
+
+    taps = [];
+    brews = [ "cowsay" ];
+    casks = [];
+  };
 
   nixpkgs.config.allowUnfree = true;
 
