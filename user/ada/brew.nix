@@ -7,16 +7,13 @@
 
     # Specify Homebrew packages to install
     packages = with pkgs; [
-      wget
-      git
-      # Add other packages as needed
+      cowsay
     ];
 
     # Specify Homebrew cask applications to install
     caskPackages = with pkgs; [
       google-chrome
       visual-studio-code
-      # Add other cask applications as needed
     ];
 
     # Enable Rosetta support for Intel-based Homebrew if on Apple Silicon

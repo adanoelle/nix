@@ -13,7 +13,7 @@
     };
   };
 
-  outputs = inputs@{ self, home-manager, darwin, rust-overlay, nix-homebrew, homebrew-core, homebrew-cask, nixpkgs }: {
+  outputs = inputs@{ self, home-manager, darwin, rust-overlay, nixpkgs }: {
     darwinConfigurations = {
       bubblegum = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
