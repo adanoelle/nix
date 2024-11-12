@@ -3,6 +3,7 @@
 in {
   imports = [
     ./alacritty.nix
+    ./brew.nix
     ./fzf.nix
     ./helix.nix
     ./hyfetch.nix

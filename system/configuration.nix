@@ -2,7 +2,7 @@
 
 {
   imports = [
-#    modules/aerospace.nix
+#    modules/homebrew.nix
   ];
  
   environment.systemPackages = with pkgs; [
