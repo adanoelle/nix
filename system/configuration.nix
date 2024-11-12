@@ -11,6 +11,7 @@
     fastfetch
     helix
     hyfetch
+    nodejs
     soundsource
     vim
   ];

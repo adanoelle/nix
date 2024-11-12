@@ -5,6 +5,7 @@ in {
     ./alacritty.nix
     ./fzf.nix
     ./helix.nix
+    ./hyfetch.nix
     ./nushell.nix
     ./starship.nix
     ./zoxide.nix
@@ -19,12 +20,19 @@ in {
     bat
     bottom
     gcc
+    hyfetch
+    libiconv
+    micromamba
     nerdfonts
+    nodePackages.typescript
+    nodejs
+    fastfetch
     font-awesome
     google-fonts
     raycast
     tree
     uv
+    zld
   ];
 
   fonts.fontconfig.enable = true;

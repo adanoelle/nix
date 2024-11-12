@@ -22,3 +22,5 @@ $env.PROMPT_COMMAND_RIGHT = { create_right_prompt }
 
 alias ll = ls -l
 alias rebuild = nix run nix-darwin -- switch --flake /Users/ada/home/nix#bubblegum
+
+$env.PATH = ($env.PATH | split row (char esep) | append "/Users/ada/.cargo/bin")
