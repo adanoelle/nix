@@ -19,6 +19,7 @@ in {
     aerospace
     bat
     bottom
+    deno
     gcc
     hyfetch
     libiconv
@@ -30,8 +31,10 @@ in {
     font-awesome
     google-fonts
     raycast
+    terraform
     tree
     uv
+    vscode
     zld
   ];
 

@@ -18,8 +18,12 @@
     enable = true;
     # onActivation.cleanup = "uninstall";
 
-    taps = [];
-    brews = [ "cowsay" ];
+    taps = ["azure/functions"];
+    brews = [
+     "cowsay"
+     "azure-cli"
+     "azure-functions-core-tools@4"
+    ];
     casks = [];
   };
 
