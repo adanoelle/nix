@@ -25,3 +25,4 @@ alias rebuild = nix run nix-darwin -- switch --flake /Users/ada/home/nix#bubbleg
 
 $env.PATH = ($env.PATH | split row (char esep) | append "/Users/ada/.cargo/bin")
 $env.PATH = ($env.PATH | split row (char esep) | append "/opt/homebrew/bin")
+$env.PATH = ($env.PATH | split row (char esep) | append "/Users/ada/.deno/bin")

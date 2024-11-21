@@ -22,6 +22,7 @@ in {
     deno
     gcc
     hyfetch
+    leetcode-cli
     libiconv
     micromamba
     nerdfonts
