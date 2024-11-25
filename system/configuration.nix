@@ -1,8 +1,6 @@
-{ pkgs, ... }: 
-
-{
+{pkgs, ...}: {
   imports = [];
- 
+
   environment.systemPackages = with pkgs; [
     awscli2
     comma
@@ -20,9 +18,9 @@
 
     taps = ["azure/functions"];
     brews = [
-     "cowsay"
-     "azure-cli"
-     "azure-functions-core-tools@4"
+      "cowsay"
+      "azure-cli"
+      "azure-functions-core-tools@4"
     ];
     casks = [];
   };

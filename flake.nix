@@ -13,21 +13,27 @@
     };
   };
 
-  outputs = inputs@{ self, home-manager, darwin, rust-overlay, nixpkgs }: {
+  outputs = inputs @ {
+    self,
+    home-manager,
+    darwin,
+    rust-overlay,
+    nixpkgs,
+  }: {
     darwinConfigurations = {
       bubblegum = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
-        modules = [ 
+        modules = [
           ./system/configuration.nix
-          home-manager.darwinModules.home-manager 
+          home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.ada = import ./user/ada/home.nix;
           }
-          ({ pkgs, ... }: {
-            nixpkgs.overlays = [ rust-overlay.overlays.default ];
-            environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+          ({pkgs, ...}: {
+            nixpkgs.overlays = [rust-overlay.overlays.default];
+            environment.systemPackages = [pkgs.rust-bin.stable.latest.default];
           })
         ];
       };

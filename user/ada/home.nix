@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }: let 
-
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
 in {
   imports = [
     ./alacritty.nix
@@ -17,6 +21,7 @@ in {
 
   home.packages = with pkgs; [
     aerospace
+    alejandra
     bat
     bottom
     deno

@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -12,7 +14,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" ];
+      plugins = ["git"];
       theme = "robbyrussell";
     };
 
@@ -25,16 +27,16 @@
   };
 
   home.file.".zshrc" = {
-  text = ''
-    # Enable zoxide
-    eval "$(zoxide init zsh)"
+    text = ''
+      # Enable zoxide
+      eval "$(zoxide init zsh)"
 
-    # Enable Direnv
-    export DIRENV_LOG_FORMAT="$(printf "\033[2mdirenv: %%s\033[0m")"
-    eval "$(direnv hook zsh)"
-    _direnv_hook() {
-      eval "$(direnv export zsh 2> >(egrep -v -e '^....direnv: export' >&2))"
-    };
-  '';
+      # Enable Direnv
+      export DIRENV_LOG_FORMAT="$(printf "\033[2mdirenv: %%s\033[0m")"
+      eval "$(direnv hook zsh)"
+      _direnv_hook() {
+        eval "$(direnv export zsh 2> >(egrep -v -e '^....direnv: export' >&2))"
+      };
+    '';
   };
 }

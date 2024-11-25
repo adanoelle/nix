@@ -1,7 +1,10 @@
-{ config, pkgs, lib, ... }:
-
 {
-  home.packages = with pkgs; [ alacritty ];
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  home.packages = with pkgs; [alacritty];
 
   programs.alacritty = {
     enable = true;
@@ -82,7 +85,7 @@
         };
       };
 
-      keyboard.bindings = [ 
+      keyboard.bindings = [
         {
           key = "Key0";
           mods = "Control";
@@ -91,7 +94,7 @@
         {
           # When using the japanese keyboard, the key to the
           # right of the Minus key is Key6
-          key = "ArrowUp"; 
+          key = "ArrowUp";
           mods = "Control";
           action = "IncreaseFontSize";
         }

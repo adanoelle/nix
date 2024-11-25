@@ -1,7 +1,10 @@
-{ config, pkgs, theme, ... }:
-
 {
-  home.packages = with pkgs; [ helix ];
+  config,
+  pkgs,
+  theme,
+  ...
+}: {
+  home.packages = with pkgs; [helix];
 
   programs.helix = {
     enable = true;
@@ -24,11 +27,11 @@
         space.space = "file_picker";
         space.w = ":w";
         space.q = ":q";
-        esc = [ "collapse_selection" "keep_primary_selection" ];
+        esc = ["collapse_selection" "keep_primary_selection"];
       };
     };
     languages = {
-      debugger ={
+      debugger = {
         command = "lldb-vscode";
         name = "lldb-vscode";
         transport = "stdio";
@@ -45,4 +48,4 @@
       ];
     };
   };
-}	
+}

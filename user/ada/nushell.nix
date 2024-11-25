@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.nushell = {
     enable = true;
     envFile.source = config/nushell/env.nu;
