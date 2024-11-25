@@ -2,7 +2,7 @@
 
 Nix configuration specific to my Macintosh machines. Stuff is sticky.
 
-## Install Nix
+## Install Nix 
 
 ```
 sh <(curl -L https://nixos.org/nix/install)
