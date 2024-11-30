@@ -41,6 +41,7 @@ in {
     tree
     uv
     vscode
+    zed-editor
     zld
   ];
 
