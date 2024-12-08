@@ -24,6 +24,7 @@ in {
     alejandra
     bat
     bottom
+    comma
     deno
     gcc
     hyfetch

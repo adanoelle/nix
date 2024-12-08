@@ -7,6 +7,8 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +19,7 @@
     self,
     home-manager,
     darwin,
+    nix-index-database,
     rust-overlay,
     nixpkgs,
   }: {
@@ -25,6 +28,7 @@
         system = "aarch64-darwin";
         modules = [
           ./system/configuration.nix
+          nix-index-database.darwinModules.nix-index
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
