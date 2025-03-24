@@ -3,7 +3,7 @@
 
   environment.systemPackages = with pkgs; [
     awscli2
-    devenv
+    # devenv
     comma
     fastfetch
     helix
