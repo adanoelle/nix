@@ -1,58 +1,66 @@
-{pkgs, ...}: {
-  imports = [];
+{ config, pkgs, ... }:
 
-  environment.systemPackages = with pkgs; [
-    awscli2
-    # devenv
-    comma
-    fastfetch
-    helix
-    hyfetch
-    nodejs
-    soundsource
-    vim
+{
+  # Declare the primary user for user‑scoped options (homebrew.enable, fonts, etc.)
+  system.primaryUser = "ada";
+
+  environment.systemPackages = [
+    pkgs.awscli2
+    pkgs.devenv      # now coming from nixpkgs-unstable because the flake uses unstable
+    pkgs.direnv
+    pkgs.comma
+    pkgs.fastfetch
+    pkgs.helix
+    pkgs.hyfetch
+    pkgs.nodejs
+    pkgs.soundsource
+    pkgs.vim
   ];
 
   homebrew = {
     enable = true;
-    # onActivation.cleanup = "uninstall";
+    # Make sure the cask repository is tapped and the Azure tap remains
+    taps = [
+      "azure/functions"
+    ];
 
-    taps = ["azure/functions"];
+    # Install your existing CLI tools
     brews = [
       "cowsay"
       "azure-cli"
       "azure-functions-core-tools@4"
     ];
-    casks = [];
+
+    # Install Ghostty via Homebrew’s cask
+    casks = [
+      "ghostty"
+    ];
+
+    # Ask nix‑darwin to run `brew update` before installing/upgrading
+    onActivation = {
+      autoUpdate = true;  # fetch latest cask definitions
+      # You can also set upgrade and cleanup here if desired
+      upgrade = true;    # upgrade outdated packages on activation
+      cleanup = "zap";   # remove unlisted packages
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
 
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
+  nix.settings = {
+    experimental-features = "nix-command flakes";
+    trusted-users = [ "root" "ada" ];
+  };
 
-  # Necessary for using flakes on this system.
-  nix.settings.experimental-features = "nix-command flakes";
-
-  # Enable alternative shell support in nix-darwin.
   programs.zsh.enable = true;
+  fonts.packages = [ pkgs.monaspace ];
 
-  fonts.packages = [
-    pkgs.monaspace
-  ];
-
-  # Set Git commit hash for darwin-version.
-  #system.configurationRevision = self.rev or self.dirtyRev or null;
-
-  # Used for backwards compatibility, please read the changelog before changing.
-  # $ darwin-rebuild changelog
+  # Keep other options (system.stateVersion, hostPlatform, users.users.ada, etc.)
   system.stateVersion = 5;
-
-  # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
-
   users.users.ada = {
     name = "ada";
     home = "/Users/ada";
   };
 }
+

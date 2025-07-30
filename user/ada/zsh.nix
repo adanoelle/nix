@@ -1,14 +1,11 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    dotDir = ".config/zsh";
+    # Use an absolute path for dotDir using the XDG config directory
+    dotDir = "${config.xdg.configHome}/zsh";
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
 
@@ -32,7 +29,7 @@
       eval "$(zoxide init zsh)"
 
       # Enable Direnv
-      export DIRENV_LOG_FORMAT="$(printf "\033[2mdirenv: %%s\033[0m")"
+      export DIRENV_LOG_FORMAT="$(printf "\033[2mdirenv: %s\033[0m")"
       eval "$(direnv hook zsh)"
       _direnv_hook() {
         eval "$(direnv export zsh 2> >(egrep -v -e '^....direnv: export' >&2))"
@@ -40,3 +37,4 @@
     '';
   };
 }
+

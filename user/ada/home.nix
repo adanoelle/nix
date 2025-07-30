@@ -31,7 +31,8 @@ in {
     leetcode-cli
     libiconv
     micromamba
-    nerdfonts
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
     nodePackages.typescript
     nodejs
     fastfetch
