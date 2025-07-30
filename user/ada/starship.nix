@@ -21,6 +21,13 @@
       os.symbols = {
         NixOS = "❄️ ";
       };
+
+      # Show the Nix shell name (`$name`) after the Nix logo
+      nix_shell = {
+        symbol = " ";
+        format = "via [$symbol$state]($style) [$name]($style) ";
+        style  = "bold yellow"
+      };
     };
   };
 }
